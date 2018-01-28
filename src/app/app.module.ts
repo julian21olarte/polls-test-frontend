@@ -1,20 +1,41 @@
+import { AuthService } from './services/auth.service';
+import { MaterialModule } from './app.material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { PollsComponent } from './components/polls/polls.component';
+import { PollService } from './services/poll.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    LoginComponent,
+    HomeComponent,
+    PollsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    FormsModule,
+    HttpModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    PollService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

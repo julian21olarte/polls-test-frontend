@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Encuestas</span>
+
+
+    <span class="example-spacer"></span>
+
+    <button mat-button routerLink="/polls" *ngIf="currentUser">Encuestas</button>
+    <button mat-button routerLink="/">Inicio</button>
+    <button mat-button routerLink="/login">Login</button>
+
+    <span color="accent" class="user_data" *ngIf="currentUser">{{currentUser.username}} - {{currentUser.role}}
+      <mat-icon color="accent">person</mat-icon>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>

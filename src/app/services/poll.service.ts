@@ -9,6 +9,7 @@ export class PollService {
   private lastPoll: Subject<any>;
   constructor(private http: Http) {
     this.apiUrl = 'http://localhost:3000/';
+    this.lastPoll = new Subject();
   }
 
 
@@ -25,11 +26,15 @@ export class PollService {
   }
 
   public setcurrentLastPoll(poll: any) {
-    this.lastPoll = poll;
+    this.lastPoll.next(poll);
   }
 
   public getCurrentLastPoll() {
     return this.lastPoll;
+  }
+
+  public replyPoll(poll: any) {
+    return this.http.post(this.apiUrl + 'poll/reply', poll);
   }
 
 }

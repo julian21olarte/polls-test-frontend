@@ -3,12 +3,17 @@ mat-card {
   margin: 0 auto;
 }
 
+mat-card.answer-card.mat-card {
+    width: 80%;
+}
+
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 
 form > *:not(button) {
   width: 100%;
@@ -24,6 +29,10 @@ form > *:not(button) {
 
 .questions-panel{
   padding: 25px 0;
+}
+
+button:not(.button-remove) {
+  margin: 15px 0;
 }
 
 .button-remove {

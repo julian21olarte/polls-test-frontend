@@ -71,7 +71,7 @@ export class AddPollComponent implements OnInit {
       .subscribe(poll => {
         if (poll) {
           console.log(this.poll);
-          this.router.navigate(['/']);
+          this.router.navigate(['/polls']);
         }
       });
   }

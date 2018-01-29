@@ -1,3 +1,4 @@
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { AuthService } from './services/auth.service';
 import { MaterialModule } from './app.material';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,7 +29,8 @@ import { LastPollComponent } from './components/last-poll/last-poll.component';
     PollsComponent,
     AddPollComponent,
     HomeModalComponent,
-    LastPollComponent
+    LastPollComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

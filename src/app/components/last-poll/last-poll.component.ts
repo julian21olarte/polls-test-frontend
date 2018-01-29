@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { PollService } from '../../services/poll.service';
 
 @Component({
@@ -10,16 +10,35 @@ import { PollService } from '../../services/poll.service';
 export class LastPollComponent implements OnInit {
 
   private lastPoll: any;
-  constructor(private pollService: PollService) {
-    // this.pollService.getLastPoll()
-    // .subscribe(lastPoll => {
-    //   this.lastPoll = lastPoll.json();
-    // });
-
-    this.lastPoll = this.pollService.getCurrentLastPoll();
+  private questionsAnswers: Array<any>;
+  constructor(private pollService: PollService, private router: Router) {
   }
 
   ngOnInit() {
+    this.pollService.getLastPoll()
+    .subscribe(lastPoll => {
+      this.lastPoll = lastPoll.json();
+      this.questionsAnswers = this.lastPoll.questions.map(question => {
+        let newQuestion = Object.assign({}, question);
+        delete newQuestion.answers;
+        return newQuestion;
+      });
+      console.log(this.questionsAnswers);
+    });
+  }
+
+  public answerPoll() {
+    this.pollService.replyPoll(this.lastPoll)
+    .subscribe(response => {
+      if(response) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
+
+
+  public getQuestion(questionId: any) {
+    return this.lastPoll.questions.filter(question => question.id === questionId);
   }
 
 }

@@ -1,4 +1,8 @@
+import { PollService } from './../../services/poll.service';
+import { AuthService } from './../../services/auth.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
+import { HomeModalComponent } from '../home-modal/home-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  private lastPoll: any;
+  private currentUser: any;
+
+  constructor(
+    private authService: AuthService,
+    private pollService: PollService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
+    console.log('load home component');
+    this.pollService.getLastPoll()
+      .subscribe(lastPoll => {
+        if (lastPoll) {
+          this.lastPoll = lastPoll.json();
+          this.pollService.setcurrentLastPoll(this.lastPoll);
+          this.openDialog();
+        }
+      });
+  }
+
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(HomeModalComponent, {
+      width: '350px',
+      data: { lastPoll: this.lastPoll }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
   }
 
 }

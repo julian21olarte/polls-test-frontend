@@ -29,4 +29,8 @@ export class PollsComponent implements OnInit, AfterViewInit {
       });
   }
 
+  public addPoll() {
+
+  }
+
 }

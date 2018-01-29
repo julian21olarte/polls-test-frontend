@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class PollService {
   private apiUrl: string;
+  private lastPoll: Subject<any>;
   constructor(private http: Http) {
     this.apiUrl = 'http://localhost:3000/';
   }
@@ -14,4 +15,21 @@ export class PollService {
   public getPolls() {
     return this.http.get(this.apiUrl + 'poll/');
   }
+
+  public savePoll(poll: any) {
+    return this.http.post(this.apiUrl + 'poll/save', poll);
+  }
+
+  public getLastPoll() {
+    return this.http.get(this.apiUrl + 'poll/last/');
+  }
+
+  public setcurrentLastPoll(poll: any) {
+    this.lastPoll = poll;
+  }
+
+  public getCurrentLastPoll() {
+    return this.lastPoll;
+  }
+
 }

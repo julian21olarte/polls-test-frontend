@@ -15,9 +15,19 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getCurrentUser()
-    .subscribe(user => {
-      this.currentUser = user;
-    });
+      .subscribe(user => {
+        this.currentUser = user;
+      });
+  }
+
+  public logout() {
+    this.authService.logout()
+      .subscribe(message => {
+        if (message) {
+          console.log(message);
+          this.authService.setCurrentUser(null);
+        }
+      });
   }
 
 }

@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PollsComponent } from './components/polls/polls.component';
 import { PollService } from './services/poll.service';
+import { AddPollComponent } from './components/add-poll/add-poll.component';
+import { HomeModalComponent } from './components/home-modal/home-modal.component';
+import { LastPollComponent } from './components/last-poll/last-poll.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { PollService } from './services/poll.service';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    PollsComponent
+    PollsComponent,
+    AddPollComponent,
+    HomeModalComponent,
+    LastPollComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,9 @@ import { PollService } from './services/poll.service';
     AuthService,
     PollService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    HomeModalComponent
+  ]
 })
 export class AppModule { }

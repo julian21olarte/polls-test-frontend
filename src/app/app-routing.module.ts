@@ -1,3 +1,5 @@
+import { LastPollComponent } from './components/last-poll/last-poll.component';
+import { AddPollComponent } from './components/add-poll/add-poll.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +11,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'polls', component: PollsComponent },
+  { path: 'addPoll', component: AddPollComponent },
+  { path: 'lastPoll', component: LastPollComponent },
   { path: '**', component: HomeComponent }
 ];
 

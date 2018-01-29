@@ -8,6 +8,7 @@
     <button mat-button routerLink="/polls" *ngIf="currentUser">Encuestas</button>
     <button mat-button routerLink="/">Inicio</button>
     <button mat-button routerLink="/login">Login</button>
+    <button mat-button (click)="logout()" *ngIf="currentUser">Logout</button>
 
     <span color="accent" class="user_data" *ngIf="currentUser">{{currentUser.username}} - {{currentUser.role}}
       <mat-icon color="accent">person</mat-icon>

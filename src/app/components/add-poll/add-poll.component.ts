@@ -1,21 +1,8 @@
+import { Poll } from './../../interfaces/poll.interface';
+import { Question } from './../../interfaces/question.interface';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PollService } from '../../services/poll.service';
-
-interface Poll {
-  title: string;
-  description: string;
-  questions: Array<Question>;
-}
-
-interface Question {
-  description: string;
-  answers: Array<Answer>;
-}
-
-interface Answer {
-  description: string;
-}
 
 @Component({
   selector: 'app-add-poll',

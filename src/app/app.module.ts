@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { AuthService } from './services/auth.service';
 import { MaterialModule } from './app.material';
@@ -42,7 +43,8 @@ import { LastPollComponent } from './components/last-poll/last-poll.component';
   ],
   providers: [
     AuthService,
-    PollService
+    PollService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

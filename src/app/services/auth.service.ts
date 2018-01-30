@@ -13,11 +13,12 @@ export class AuthService {
     }
 
     public login(login_user: any) {
-        return this.http.post(this.apiUrl + 'auth/login', login_user);
+        return this.http.post(this.apiUrl + 'auth/login', login_user, {withCredentials: true});
     }
 
     public logout() {
-        return this.http.post(this.apiUrl + 'auth/logout', {});
+        localStorage.removeItem('currentUser');
+        return this.http.post(this.apiUrl + 'auth/logout', {}, {withCredentials: true});
     }
 
     public getCurrentUser(): Observable<any> {
@@ -25,6 +26,7 @@ export class AuthService {
     }
 
     public setCurrentUser(newUser: any) {
+        localStorage.setItem('currentUser', newUser);
         this.user.next(newUser);
     }
 }

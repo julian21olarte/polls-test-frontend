@@ -28,8 +28,9 @@ export class HomeComponent implements OnInit {
           this.lastPoll = lastPoll.json();
           this.pollService.setcurrentLastPoll(this.lastPoll);
           console.log(localStorage.getItem('lastPoll'));
-          console.log(this.pollService.lastPollWasReply());
-          if (!this.pollService.lastPollWasReply()) {
+          console.log(this.lastPoll.id);
+          console.log(this.pollService.lastPollWasReply(this.lastPoll.id));
+          if (!this.pollService.lastPollWasReply(this.lastPoll.id)) {
             this.openDialog();
           }
         }

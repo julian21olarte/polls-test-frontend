@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   private currentUser: any;
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
         if (message) {
           console.log(message);
           this.authService.setCurrentUser(null);
+          this.router.navigate(['/']);
         }
       });
   }

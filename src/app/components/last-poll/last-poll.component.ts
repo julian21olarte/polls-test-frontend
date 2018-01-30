@@ -16,24 +16,25 @@ export class LastPollComponent implements OnInit {
 
   ngOnInit() {
     this.pollService.getLastPoll()
-    .subscribe(lastPoll => {
-      this.lastPoll = lastPoll.json();
-      this.questionsAnswers = this.lastPoll.questions.map(question => {
-        let newQuestion = Object.assign({}, question);
-        delete newQuestion.answers;
-        return newQuestion;
+      .subscribe(lastPoll => {
+        this.lastPoll = lastPoll.json();
+        this.questionsAnswers = this.lastPoll.questions.map(question => {
+          const newQuestion = Object.assign({}, question);
+          delete newQuestion.answers;
+          return newQuestion;
+        });
+        console.log(this.questionsAnswers);
       });
-      console.log(this.questionsAnswers);
-    });
   }
 
   public answerPoll() {
     this.pollService.replyPoll(this.lastPoll)
-    .subscribe(response => {
-      if(response) {
-        this.router.navigate(['/']);
-      }
-    });
+      .subscribe(response => {
+        if (response) {
+          localStorage.setItem('lastPoll', this.lastPoll.id);
+          this.router.navigate(['/']);
+        }
+      });
   }
 
 

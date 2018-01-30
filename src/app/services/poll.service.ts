@@ -37,4 +37,9 @@ export class PollService {
     return this.http.post(this.apiUrl + 'poll/reply', poll);
   }
 
+
+  public lastPollWasReply() {
+    return localStorage.getItem(`lastPoll`) !== null;
+  }
+
 }

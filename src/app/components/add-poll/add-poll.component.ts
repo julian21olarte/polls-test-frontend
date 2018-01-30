@@ -71,6 +71,7 @@ export class AddPollComponent implements OnInit {
       .subscribe(poll => {
         if (poll) {
           console.log(this.poll);
+          localStorage.removeItem('lastPoll');
           this.router.navigate(['/polls']);
         }
       });

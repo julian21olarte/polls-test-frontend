@@ -39,8 +39,12 @@ export class PollService {
 
 
   public lastPollWasReply(lastPollId: number) {
-    let item = localStorage.getItem(`lastPoll`);
+    const item = localStorage.getItem(`lastPoll`);
     return item && (Number(item) === lastPollId);
+  }
+
+  public getPoll(pollId: number) {
+    return this.http.get(this.apiUrl + 'poll/' + pollId, {withCredentials: true});
   }
 
 }

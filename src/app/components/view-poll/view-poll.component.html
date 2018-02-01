@@ -1,0 +1,67 @@
+<mat-card *ngIf="poll">
+  <mat-card-header>
+    <h1 color="primary">{{poll.title | capitalize}}</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <!-- <mat-form-field>
+          <input matInput placeholder="Title" name="title" [(ngModel)]="poll.title">
+        </mat-form-field> -->
+
+      <!-- <h3>{{poll.title | capitalize}}</h3> -->
+
+
+      <!-- <mat-form-field>
+          <input matInput placeholder="Description" name="description" [(ngModel)]="poll.description">
+        </mat-form-field> -->
+
+      <h4>{{poll.description | capitalize}}</h4>
+
+      <!-- QUESTIONS -->
+      <h2 color="primary">Questions</h2>
+      <div *ngFor="let question of poll.questions; let i_question = index;" class="questions-panel">
+        <mat-card>
+          <mat-card-content>
+            <form>
+              <h3>Question # {{i_question+1}}</h3>
+              <!-- <mat-form-field>
+                  <input matInput placeholder="Description of question" name="question description" [(ngModel)]="question.description">
+                </mat-form-field> -->
+              <p>¿{{question.description | capitalize}}?</p>
+              <br>
+              <br>
+
+              <!-- ANSWERS -->
+              <mat-card class="answer-card">
+                <mat-card-content>
+                  <h3 color="primary">Answers</h3>
+                  <div class="answers-panel">
+                    <form class="answers-form" *ngFor="let answer of question.answers; let i_answer = index;">
+                      <!-- <mat-form-field>
+                          <input matInput placeholder="Answer #{{i_answer+1}}" name="answer description" [(ngModel)]="answer.description">
+                          <button mat-mini-fab class="button-remove" color="warn" (click)="deleteElement(question.answers, answer)">
+                            <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+                          </button>
+                        </mat-form-field> -->
+                      <mat-radio-group class="example-radio-group" name="radio-answer-{{question.id}}" [(ngModel)]="question.answer">
+                        <mat-radio-button class="example-radio-button" [value]="answer.id">
+                          {{answer.description | capitalize}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                      <!-- <p>{{answer.description | capitalize}}</p> -->
+
+
+                    </form>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- <div class="button-row">
+        <button mat-raised-button color="primary" (click)="answerPoll()">FINISH</button>
+      </div> -->
+    </form>
+  </mat-card-content>
+</mat-card>

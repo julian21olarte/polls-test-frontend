@@ -24,7 +24,7 @@ export class HomeModalComponent implements OnInit {
 
   public accept(lastPoll) {
     this.dialogRef.close();
-    this.router.navigate(['/lastPoll']);
+    this.router.navigate(['/polls/last']);
   }
 
 }

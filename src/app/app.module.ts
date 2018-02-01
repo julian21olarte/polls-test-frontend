@@ -19,6 +19,7 @@ import { PollService } from './services/poll.service';
 import { AddPollComponent } from './components/add-poll/add-poll.component';
 import { HomeModalComponent } from './components/home-modal/home-modal.component';
 import { LastPollComponent } from './components/last-poll/last-poll.component';
+import { ViewPollComponent } from './components/view-poll/view-poll.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LastPollComponent } from './components/last-poll/last-poll.component';
     AddPollComponent,
     HomeModalComponent,
     LastPollComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    ViewPollComponent
   ],
   imports: [
     BrowserModule,

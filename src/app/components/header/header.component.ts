@@ -17,7 +17,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.authService.getCurrentUser()
       .subscribe(user => {
-        this.currentUser = user;
+        this.currentUser = user ? user.json() : user;
+        this.router.navigate(['/']);
       });
   }
 
@@ -26,7 +27,6 @@ export class HeaderComponent implements OnInit {
       .subscribe(message => {
         if (message) {
           console.log(message);
-          this.authService.setCurrentUser(null);
           this.router.navigate(['/']);
         }
       });

@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
   public login() {
     this.authService.login(this.userLogin)
       .subscribe(userLogged => {
-        userLogged = userLogged.json().user;
         if (userLogged) {
-          this.authService.setCurrentUser(userLogged);
           this.router.navigate(['home']);
         }
       });

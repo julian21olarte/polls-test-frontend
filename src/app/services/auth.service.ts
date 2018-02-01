@@ -13,20 +13,20 @@ export class AuthService {
     }
 
     public login(login_user: any) {
-        return this.http.post(this.apiUrl + 'auth/login', login_user, {withCredentials: true});
+        return this.http.post(this.apiUrl + 'auth/login', login_user, {withCredentials: true})
+        .map(user => {
+            this.user.next(user);
+        });
     }
 
     public logout() {
-        localStorage.removeItem('currentUser');
-        return this.http.post(this.apiUrl + 'auth/logout', {}, {withCredentials: true});
+        return this.http.post(this.apiUrl + 'auth/logout', {}, {withCredentials: true})
+        .map((resp) => {
+            this.user.next();
+        });
     }
 
     public getCurrentUser(): Observable<any> {
         return this.user.asObservable();
-    }
-
-    public setCurrentUser(newUser: any) {
-        localStorage.setItem('currentUser', newUser);
-        this.user.next(newUser);
     }
 }

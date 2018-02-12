@@ -3,39 +3,63 @@ p {
 }
 
 mat-card {
-  width: 75%;
-  margin: 0 auto;
+width: 90%;
+margin: 0 auto;
 }
 
 mat-card.answer-card.mat-card {
-    width: 80%;
+  width: 90%;
+  border: none;
+  box-shadow: none;
+  padding: 15px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 
+form.answers-form {
+flex-direction: row;
+}
+form.answers-form mat-form-field {
+margin: 10px 0;
+}
+
+
 form > *:not(button) {
-  width: 100%;
+width: 100%;
 }
 
 .questions-panel > form > *:not(button) {
-  width: 90%;
+width: 75%;
 }
 
 .answers-panel > form > *:not(button) {
-  width: 85%;
+width: 85%;
 }
 
 .questions-panel{
-  padding: 25px 0;
+padding: 25px 0;
+}
+
+button:not(.button-remove) {
+margin: 15px 0;
 }
 
 .button-remove {
-  float: right;
+float: right;
+margin-left: 15px;
+}
+
+.answers-form mat-form-field {
+width: 50%;
+}
+
+button.new {
+background-color: #00C853;
 }
 
 .example-radio-group {

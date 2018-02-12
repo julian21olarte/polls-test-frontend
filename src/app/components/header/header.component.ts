@@ -15,20 +15,20 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentUser = this.authService.existUserLogged();
     this.authService.getCurrentUser()
       .subscribe(user => {
-        this.currentUser = user ? user.json() : user;
+        this.currentUser = user;
         this.router.navigate(['/']);
       });
   }
 
-  public logout() {
+  public logout(): void {
     this.authService.logout()
       .subscribe(message => {
-        if (message) {
-          console.log(message);
-          this.router.navigate(['/']);
-        }
+        console.log('LOGOUT');
+        delete this.currentUser;
+        this.router.navigate(['home']);
       });
   }
 

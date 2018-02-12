@@ -23,22 +23,20 @@ export class LastPollComponent implements OnInit {
           delete newQuestion.answers;
           return newQuestion;
         });
-        console.log(this.questionsAnswers);
       });
   }
 
-  public answerPoll() {
+  public answerPoll(): void {
     this.pollService.replyPoll(this.lastPoll)
       .subscribe(response => {
         if (response) {
-          localStorage.setItem('lastPoll', this.lastPoll.id);
           this.router.navigate(['/']);
         }
       });
   }
 
 
-  public getQuestion(questionId: any) {
+  public getQuestion(questionId: any): void {
     return this.lastPoll.questions.filter(question => question.id === questionId);
   }
 

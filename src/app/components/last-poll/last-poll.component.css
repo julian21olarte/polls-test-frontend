@@ -3,40 +3,64 @@ p {
 }
 
 mat-card {
-    width: 75%;
-    margin: 0 auto;
-  }
+  width: 90%;
+  margin: 0 auto;
+}
 
-  mat-card.answer-card.mat-card {
-      width: 80%;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  form > *:not(button) {
-    width: 100%;
-  }
-  
-  .questions-panel > form > *:not(button) {
+mat-card.answer-card.mat-card {
     width: 90%;
-  }
-  
-  .answers-panel > form > *:not(button) {
-    width: 85%;
-  }
-  
-  .questions-panel{
-    padding: 25px 0;
-  }
-  
-  .button-remove {
-    float: right;
-  }
+    border: none;
+    box-shadow: none;
+    padding: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form.answers-form {
+  flex-direction: row;
+}
+form.answers-form mat-form-field {
+  margin: 10px 0;
+}
+
+
+form > *:not(button) {
+  width: 100%;
+}
+
+.questions-panel > form > *:not(button) {
+  width: 75%;
+}
+
+.answers-panel > form > *:not(button) {
+  width: 85%;
+}
+
+.questions-panel{
+  padding: 25px 0;
+}
+
+button:not(.button-remove) {
+  margin: 15px 0;
+}
+
+.button-remove {
+  float: right;
+  margin-left: 15px;
+}
+
+.answers-form mat-form-field {
+  width: 50%;
+}
+
+button.new {
+  background-color: #00C853;
+}
 
   .example-radio-group {
     display: inline-flex;

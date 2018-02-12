@@ -1,5 +1,28 @@
-<mat-card>
+<mat-card *ngIf="!lastPoll">
   <mat-card-content>
-    <h1 *ngIf="!lastPoll">No existe ninguna encuesta por ahora!</h1>
+    <h1>No existe ninguna encuesta por ahora!</h1>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="lastPoll && lastPollResponses">
+  <mat-card-content>
+    <div>
+      <h3>Ultima encuesta: {{lastPoll.title}}</h3>
+      <h3>Cantidad de usuarios que han respondido esta encuesta: {{numberOfLastPollResponses}}</h3>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="lastPoll && lastPollResponses">
+  <mat-card-content>
+    <h1>Charts</h1>
+      <div class="chart-container" *ngFor="let question of lastPoll.questions">
+        <h3>{{question.description | capitalize}}</h3>
+        <canvas baseChart
+          [data]="getChartData(question)" 
+          [labels]="getLabels(question)" 
+          [chartType]="chartDataType">
+        </canvas>
+      </div>
   </mat-card-content>
 </mat-card>

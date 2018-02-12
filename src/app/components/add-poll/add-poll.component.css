@@ -1,10 +1,13 @@
 mat-card {
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
 }
 
 mat-card.answer-card.mat-card {
-    width: 80%;
+    width: 90%;
+    border: none;
+    box-shadow: none;
+    padding: 15px;
 }
 
 form {
@@ -14,13 +17,20 @@ form {
   align-items: center;
 }
 
+form.answers-form {
+  flex-direction: row;
+}
+form.answers-form mat-form-field {
+  margin: 10px 0;
+}
+
 
 form > *:not(button) {
   width: 100%;
 }
 
 .questions-panel > form > *:not(button) {
-  width: 90%;
+  width: 75%;
 }
 
 .answers-panel > form > *:not(button) {
@@ -37,4 +47,13 @@ button:not(.button-remove) {
 
 .button-remove {
   float: right;
+  margin-left: 15px;
+}
+
+.answers-form mat-form-field {
+  width: 50%;
+}
+
+button.new {
+  background-color: #00C853;
 }

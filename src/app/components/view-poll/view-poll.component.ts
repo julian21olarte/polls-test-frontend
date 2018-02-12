@@ -33,7 +33,6 @@ export class ViewPollComponent implements OnInit {
       this.pollService.getPoll(this.pollId)
       .subscribe(poll => {
         this.poll = poll.json();
-        console.log(this.poll);
       });
     });
   }

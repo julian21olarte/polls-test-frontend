@@ -12,9 +12,11 @@ export class AuthGuard implements CanActivate {
 
     private currentUser: any;
     constructor(private authService: AuthService, private router: Router) {
+        this.currentUser = this.authService.existUserLogged();
         this.authService.getCurrentUser()
             .subscribe(user => {
-                this.currentUser = user ? user.json() : user;
+                this.currentUser = user;
+                this.router.navigate(['/']);
             });
     }
 

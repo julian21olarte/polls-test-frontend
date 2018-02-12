@@ -2,9 +2,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { AuthService } from './services/auth.service';
 import { MaterialModule } from './app.material';
+import { ChartsModule } from 'ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -41,12 +43,14 @@ import { ViewPollComponent } from './components/view-poll/view-poll.component';
     MaterialModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
   providers: [
     AuthService,
     PollService,
-    AuthGuard
+    AuthGuard,
+    CookieService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

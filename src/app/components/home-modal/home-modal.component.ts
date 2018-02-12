@@ -18,11 +18,11 @@ export class HomeModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  public close() {
+  public close(): void {
     this.dialogRef.close();
   }
 
-  public accept(lastPoll) {
+  public accept(lastPoll): void {
     this.dialogRef.close();
     this.router.navigate(['/polls/last']);
   }

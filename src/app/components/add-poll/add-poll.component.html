@@ -31,16 +31,17 @@
                   <div *ngFor="let answer of question.answers; let i_answer = index;" class="answers-panel">
                     <form class="answers-form">
                       <mat-form-field>
-                        <input matInput placeholder="Answer #{{i_answer+1}}" name="answer description" [(ngModel)]="answer.description">
-                        <button mat-mini-fab class="button-remove" color="warn" (click)="deleteElement(question.answers, answer)">
-                          <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
-                        </button>
+                        <input matInput placeholder="Answer #{{i_answer+1}}" 
+                          name="answer description" 
+                          [(ngModel)]="answer.description" 
+                          (focus)="inputClick(question, i_answer)">
                       </mat-form-field>
+                      <button mat-mini-fab class="button-remove" color="warn" (click)="deleteElement(question.answers, answer)">
+                        <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+                      </button>
                     </form>
                   </div>
-                  <div class="button-row">
-                    <button mat-raised-button color="accent" (click)="addAnswerToQuestion(question)">New Answer</button>
-                  </div>
+                  <button class="new" mat-raised-button color="accent" (click)="addAnswerToQuestion(question)">New Answer</button>
                 </mat-card-content>
               </mat-card>
             </form>
@@ -48,7 +49,7 @@
         </mat-card>
       </div>
       <div class="button-row">
-        <button mat-raised-button color="accent" (click)="addQuestionToPoll()">New Question</button>
+        <button class="new" mat-raised-button color="accent" (click)="addQuestionToPoll()">New Question</button>
       </div>
       <div class="button-row">
         <button mat-raised-button color="primary" (click)="savePoll()">SAVE POLL</button>

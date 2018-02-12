@@ -3,6 +3,7 @@ import { AuthService } from './../../services/auth.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { HomeModalComponent } from '../home-modal/home-modal.component';
+import 'chart.piecelabel.js';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,15 @@ export class HomeComponent implements OnInit {
     [sessionId: string]: Array<any>;
   };
   private numberOfLastPollResponses: number;
+  public chartOptions: any = {
+    pieceLabel: {
+      render: function (args) {
+        const label = args.label,
+              value = args.value;
+        return value;
+      }
+    }
+  };
 
   // chart vars
   public chartDataType: string;

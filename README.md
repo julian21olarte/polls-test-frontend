@@ -7,7 +7,7 @@
 
 1. Nodejs 8.9.4 o superior
 2. Npm 5.5 o superior
-3. Intalacion del [backend](https://github.com/julian21olarte/polls-test-backend) de la aplicacion
+3. Instalacion del [backend](https://github.com/julian21olarte/polls-test-backend) de la aplicacion
 
 ## Instalación
 ```

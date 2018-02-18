@@ -47,7 +47,13 @@ button.new {
 button {
     float: right;
 }
-
+button.left {
+  float: left;
+}
+button.check {
+  background-color: #00C853;
+  color: white;
+}
 .swiper-pagination-bullet {
   background-color: steelblue !important;
 }

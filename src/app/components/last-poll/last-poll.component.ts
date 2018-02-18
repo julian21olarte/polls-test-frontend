@@ -77,6 +77,12 @@ export class LastPollComponent implements OnInit {
       this.indexSwiper += 1;
     }
   }
+  public prevQuestion() {
+    console.log(this.indexSwiper);
+    if (this.indexSwiper) {
+      this.indexSwiper -= 1;
+    }
+  }
 
   public checkResponse() {
     const index = this.indexSwiper;

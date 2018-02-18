@@ -61,8 +61,15 @@
         </div>
       </swiper>
       <div class="button-row">
-        <button *ngIf="indexSwiper === (lastPoll.questions.length-1)" mat-raised-button color="primary" (click)="answerPoll()">FINISH</button>
-        <button *ngIf="indexSwiper < (lastPoll.questions.length-1)" mat-raised-button color="warn" (click)="nextQuestion()">NEXT</button>
+        <button *ngIf="indexSwiper === (lastPoll.questions.length-1)" class="check" mat-raised-button (click)="answerPoll()">
+            <mat-icon>check</mat-icon>
+        </button>
+        <button *ngIf="indexSwiper" mat-raised-button color="warn" (click)="prevQuestion()" class="left">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button *ngIf="indexSwiper < (lastPoll.questions.length-1)" mat-raised-button color="primary" (click)="nextQuestion()">
+            <mat-icon>arrow_forward</mat-icon>
+        </button>
       </div>
   </mat-card-content>
 </mat-card>

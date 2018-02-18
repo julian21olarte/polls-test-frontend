@@ -7,12 +7,14 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { PollsComponent } from './components/polls/polls.component';
 import { ViewPollComponent } from './components/view-poll/view-poll.component';
+import { EditPollComponent } from './components/edit-poll/edit-poll.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'polls/view', component: ViewPollComponent, canActivate: [AuthGuard] },
+  { path: 'polls/edit', component: EditPollComponent, canActivate: [AuthGuard] },
   { path: 'polls/add', component: AddPollComponent, canActivate: [AuthGuard] },
   { path: 'polls/last', component: LastPollComponent },
   { path: 'polls', component: PollsComponent, canActivate: [AuthGuard] },

@@ -1,24 +1,23 @@
+@import '~swiper/dist/css/swiper.min.css';
+
 p {
-    font-size: 1.4em;
+    font-size: 1.2em;
+}
+h2 {
+  font-size: 1.2em;
 }
 
-mat-card {
-  width: 90%;
-  margin: 0 auto;
+.mat-card-lastPoll {
+  height: 100vh;
 }
-
+mat-card.mat-card {
+  box-shadow: none;
+  padding: 15px 15px;
+}
 mat-card.answer-card.mat-card {
     width: 90%;
     border: none;
     box-shadow: none;
-    padding: 15px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 form.answers-form {
@@ -28,53 +27,47 @@ form.answers-form mat-form-field {
   margin: 10px 0;
 }
 
-
-form > *:not(button) {
-  width: 100%;
-}
-
-.questions-panel > form > *:not(button) {
-  width: 75%;
-}
-
-.answers-panel > form > *:not(button) {
-  width: 85%;
-}
-
-.questions-panel{
-  padding: 25px 0;
-}
-
-button:not(.button-remove) {
-  margin: 15px 0;
-}
-
-.button-remove {
-  float: right;
-  margin-left: 15px;
-}
-
-.answers-form mat-form-field {
-  width: 50%;
-}
-
 button.new {
   background-color: #00C853;
 }
 
-  .example-radio-group {
-    display: inline-flex;
-    flex-direction: column;
-  }
-  
-  .example-radio-button {
-    margin: 10px;
-  }
-  
-  .example-selected-value {
-    margin: 15px 0;
-  }
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
 
-  button {
-      float: right;
+.example-radio-button {
+  margin: 10px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+button {
+    float: right;
+}
+
+.swiper-pagination-bullet {
+  background-color: steelblue !important;
+}
+
+.swiper-pagination-bullet.answered {
+  background-color: steelblue !important;
+  border: 1px solid steelblue !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: steelblue !important;
+  border: 1px solid steelblue !important;
+  width: 11px !important;
+  height: 11px !important;
+  filter: blur(1.5px);
+}
+
+@media screen and (max-width: 480px) {
+  .swiper-slide {
+    padding-bottom: 15%;
   }
+}

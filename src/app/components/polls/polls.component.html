@@ -30,7 +30,7 @@
           <!--lateral menu dot-->
           <mat-menu #appMenu="matMenu">
             <button mat-menu-item routerLink="view" [queryParams]="{id: element.id}"> View </button>
-            <button mat-menu-item> Edit </button>
+            <button mat-menu-item routerLink="edit" [queryParams]="{id: element.id}"> Edit </button>
           </mat-menu>
           <button mat-icon-button [matMenuTriggerFor]="appMenu" color="accent">
             <mat-icon>more_vert</mat-icon>

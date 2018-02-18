@@ -26,6 +26,13 @@ export class PollService {
       });
   }
 
+  public updatePoll(pollId: number, poll: any) {
+    return this.http.put(this.apiUrl + 'poll/update/' + pollId, poll, { withCredentials: true })
+      .map(newPoll => {
+        return newPoll.json();
+      });
+  }
+
   public getLastPoll() {
     return this.http.get(this.apiUrl + 'poll/last/', { withCredentials: true });
   }

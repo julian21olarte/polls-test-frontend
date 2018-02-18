@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     pieceLabel: {
       render: function (args) {
         const label = args.label,
-              value = args.value;
+          value = args.value;
         return value;
       }
     }
@@ -35,6 +35,10 @@ export class HomeComponent implements OnInit {
     private authService: AuthService,
     private pollService: PollService,
     public dialog: MatDialog) {
+
+  }
+
+  ngOnInit() {
     this.chartDataType = 'doughnut';
     console.log('load home component');
     this.pollService.getLastPoll()
@@ -43,6 +47,7 @@ export class HomeComponent implements OnInit {
           this.lastPoll = lastPoll.json();
           this.pollService.setcurrentLastPoll(this.lastPoll);
           if (!this.pollService.lastPollWasReply(this.lastPoll.id)) {
+            console.log(this.lastPoll);
             this.openDialog();
           }
 
@@ -55,10 +60,6 @@ export class HomeComponent implements OnInit {
             });
         }
       });
-
-  }
-
-  ngOnInit() {
   }
 
   public openDialog(): void {
@@ -86,12 +87,9 @@ export class HomeComponent implements OnInit {
     };
     const questionArray = Object.values(this.lastPollResponses)
       .map(responses => {
-      return responses.filter(resp => resp.questionId === question.id)[0].answerId;
-    });
-
-    return question.answers.map(answer => {
-      return countDuplicates(questionArray, answer.id);
-    });
+        return responses.filter(resp => resp.questionId === question.id)[0].answerId;
+      });
+    return question.answers.map(answer => countDuplicates(questionArray, answer.id));
   }
 
 }

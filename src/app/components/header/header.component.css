@@ -14,3 +14,10 @@
 mat-icon {
   vertical-align: middle;
 }
+
+
+@media screen and (max-width: 480px) {
+  .user_data {
+    display: none;
+  }
+}

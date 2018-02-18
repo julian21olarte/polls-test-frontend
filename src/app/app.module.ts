@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SwiperSlideModule } from './swiper.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,6 +23,7 @@ import { AddPollComponent } from './components/add-poll/add-poll.component';
 import { HomeModalComponent } from './components/home-modal/home-modal.component';
 import { LastPollComponent } from './components/last-poll/last-poll.component';
 import { ViewPollComponent } from './components/view-poll/view-poll.component';
+import { EditPollComponent } from './components/edit-poll/edit-poll.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { ViewPollComponent } from './components/view-poll/view-poll.component';
     HomeModalComponent,
     LastPollComponent,
     CapitalizePipe,
-    ViewPollComponent
+    ViewPollComponent,
+    EditPollComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { ViewPollComponent } from './components/view-poll/view-poll.component';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    ChartsModule
+    ChartsModule,
+    SwiperSlideModule
   ],
   providers: [
     AuthService,
